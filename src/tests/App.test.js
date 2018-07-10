@@ -11,4 +11,14 @@ describe('<App />', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
+  it('renders correctly', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should start at 0', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+
+    expect(instance.state.total).toBe("0");
+  })
 });
